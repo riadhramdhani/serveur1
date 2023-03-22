@@ -35,6 +35,12 @@ console.log(req.body.title)
 
 
         
+    }),
+    deleteProduct: ((req,res) => {
+        const query=`delete from produit where id=${req.params.id}`
+        connection.query(query, (err, result) => {
+            err ? res.status(500).send(err) : res.status(201).send("product deleted")
+        })
     })
 
 }
